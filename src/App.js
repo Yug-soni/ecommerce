@@ -1,11 +1,7 @@
-import Logo from "./components/logo/logo.component";
+import React from "react";
 
 function App() {
-  return (
-    <div>
-      <Logo />
-    </div>
-  );
+  return <div>Hello</div>;
 }
 
 export default App;
