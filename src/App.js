@@ -1,128 +1,31 @@
 import React from "react";
+import Welcome from "./admin/welcome/Welcome.page";
+import Login from "./admin/Login/Login.component";
+import ProductView from "./admin/product-view/ProductView.component";
+// import Admin from "./admin/HomePage.page";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoaded: false,
-      error: null,
-      adminUserList: [],
-    };
-  }
-
-  getListOfAllAdminUsers = () => {
-    try {
-      fetch(`http://localhost:8080/`)
-        .then(response => response.json())
-        .then(
-          adminUserList => {
-            this.setState(
-              {
-                adminUserList: adminUserList,
-                isLoaded: true,
-                error: null,
-              },
-              () => {
-                // console.log(this.state.adminUserList);
-              }
-            );
-          },
-          error => {
-            this.setState({
-              isLoaded: true,
-              error: error,
-            });
-          }
-        );
-    } catch (error) {
-      console.log("Error");
-      console.log(error);
-    }
-  };
-
-  insertDefaultAdminUser = () => {
-    fetch(`http://localhost:8080/insert-default-admin-user`)
-      .then(response => response.json())
-      .then(
-        data => {
-          console.log(data);
-          this.getListOfAllAdminUsers();
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  };
-
-  updateDefaultAdminUser = () => {
-    fetch(`http://localhost:8080/update-default-admin-user`).then(response => {
-      this.getListOfAllAdminUsers();
-    });
-  };
-
-  deleteDefaultAdminUser = () => {
-    let { adminUserList } = this.state;
-    fetch(`http://localhost:8080/delete-default-admin-user`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(adminUserList[adminUserList.length - 1]),
-    })
-      .then(response => response.json())
-      .then(
-        data => {
-          console.log(data);
-          this.getListOfAllAdminUsers();
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  };
-
   render() {
-    const { isLoaded, error, adminUserList } = this.state;
-
-    if (error) {
-      return <div>Error: {error}</div>;
-    } else if (!isLoaded) {
-      return (
-        <div>
-          Loading...{" "}
-          <button onClick={() => this.getListOfAllAdminUsers()}>
-            Get List of All Users
-          </button>{" "}
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <button onClick={() => this.insertDefaultAdminUser()}>
-            Insert default admin user
-          </button>
-          <button onClick={() => this.updateDefaultAdminUser()}>
-            Update default admin user
-          </button>
-          <button onClick={() => this.deleteDefaultAdminUser()}>
-            Delete default admin user
-          </button>
-          <button onClick={() => this.getListOfAllAdminUsers()}>
-            Get List of All Users
-          </button>{" "}
-          <br />
-          {adminUserList.map(({ adminUserId, email, password }) => (
-            <div key={adminUserId}>
-              <p>Id: {adminUserId}</p>
-              <p>Email: {email}</p>
-              <p>Password: {password}</p>
-              <br />
-            </div>
-          ))}
-        </div>
-      );
-    }
+    return (
+      <Router>
+        <Switch>
+          <Route path="/special/welcome" exact>
+            <Welcome />
+          </Route>
+          <Route path="/special/" exact>
+            <Welcome />
+          </Route>
+          <Route path="/special/login" exact>
+            <Login />
+          </Route>
+          <Route path="/special/product-v" exact>
+            <ProductView />
+          </Route>
+        </Switch>
+      </Router>
+    );
   }
 }
 
