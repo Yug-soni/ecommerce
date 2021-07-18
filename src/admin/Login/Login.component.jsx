@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Redirect } from "react-router-dom";
+
 import "./Login.styles.css";
 
 class Login extends React.Component {
@@ -12,6 +14,7 @@ class Login extends React.Component {
       password: "",
       special: "special",
       error: null,
+      redirect: null,
     };
   }
 
@@ -52,7 +55,10 @@ class Login extends React.Component {
       .then(
         data => {
           // console.log(data);
-          alert(`Success`);
+          // alert(`Success`);
+          this.setState({
+            redirect: true,
+          });
         },
         error => {
           this.setState({
@@ -82,10 +88,15 @@ class Login extends React.Component {
   };
 
   render() {
+    const { redirect } = this.state;
+    const { special } = this.props;
+    if (redirect) {
+      return <Redirect to={`/${special}`} />;
+    }
     return (
       <form onSubmit={this.handleSubmit} className="login">
         <div className="login-form-heading-container">
-          <h1 className="login-form-heading">Login</h1>
+          <h1 className="login-form-heading">Login | Register</h1>
         </div>
         <div className="login-form">
           <span className="login-form-span">Email</span>

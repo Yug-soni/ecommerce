@@ -12,6 +12,7 @@ class Card extends React.Component {
       redirect: false,
       link: "",
       displayHeading: "",
+      special: "",
     };
   }
 
@@ -21,10 +22,11 @@ class Card extends React.Component {
         return {
           displayHeading: prevProps.displayHeading,
           link: prevProps.link,
+          special: prevProps.special,
         };
       },
       () => {
-        // console.log(this.state);
+        // console.log(this.props);
       }
     );
   }
@@ -36,9 +38,10 @@ class Card extends React.Component {
   };
 
   render() {
-    const { displayHeading, link, redirect } = this.state;
+    const { displayHeading, link, special, redirect } = this.state;
+    const { isLoggedIn } = this.props;
     if (redirect) {
-      return <Redirect to={link} />;
+      return <Redirect to={`${special}/${isLoggedIn ? link : "login"}`} />;
     }
     return (
       <div className="card-option" onClick={this.redirectMe}>

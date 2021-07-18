@@ -39,8 +39,8 @@ class Welcome extends Component {
     return (
       <div className="admin-user-welcome-page">
         <div className="option-container">
-          {options.map(({ id, displayHeading, link }) => (
-            <Card key={id} displayHeading={displayHeading} link={link} />
+          {options.map(({ id, ...others }) => (
+            <Card key={id} {...others} {...this.props} />
           ))}
         </div>
       </div>
@@ -49,7 +49,3 @@ class Welcome extends Component {
 }
 
 export default Welcome;
-
-//   <div className="admin-user-header">
-//   <div>header</div>
-// </div>

@@ -7,20 +7,27 @@ import ProductView from "./admin/product-view/ProductView.component";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      special: "special",
+      isLoggedIn: true,
+    };
+  }
+
   render() {
+    const { special } = this.state;
     return (
       <Router>
         <Switch>
-          <Route path="/special/welcome" exact>
-            <Welcome />
+          <Route path={`/${special}`} exact>
+            <Welcome {...this.state} />
           </Route>
-          <Route path="/special/" exact>
-            <Welcome />
+          <Route path={`/${special}/login`} exact>
+            <Login {...this.state} />
           </Route>
-          <Route path="/special/login" exact>
-            <Login />
-          </Route>
-          <Route path="/special/product-v" exact>
+          <Route path={`/${special}/product-v`} exact>
             <ProductView />
           </Route>
         </Switch>
