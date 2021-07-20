@@ -3,6 +3,7 @@ import Welcome from "./admin/welcome/Welcome.page";
 import Login from "./admin/Login/Login.component";
 import ProductView from "./admin/product-view/ProductView.component";
 // import Admin from "./admin/HomePage.page";
+import HomePage from "./page/home/HomePage.component";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -21,6 +22,9 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
           <Route path={`/${special}`} exact>
             <Welcome {...this.state} />
           </Route>
