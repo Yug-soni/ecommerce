@@ -28,7 +28,7 @@ const NavBar = props => {
 				<Slogan>--made-easy--</Slogan>
 			</LogoWrapper>
 			<SearchBarWrapper>
-				<SearchBar />
+				<SearchBar placeholder="Search items here" />
 				<IconWrapper bg="#fff">
 					<Icon size="size1point5" src={searchIconImage} />
 				</IconWrapper>
