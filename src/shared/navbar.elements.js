@@ -100,6 +100,14 @@ export const ListItem = styled.div`
 `;
 
 export const ItemHeading = styled.h1`
+	color: #f5f5f5;
 	padding: 0.2rem;
 	font-size: 15px;
+	transition: all 0.4s ease-in-out 0.2s;
+
+	&:hover {
+		font-size: 14px;
+		color: ${({ theme }) => (theme.color.text ? theme.color.text : " #fff")};
+		font-weight: bolder;
+	}
 `;

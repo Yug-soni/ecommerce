@@ -7,6 +7,8 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./theme/GlobalStyles";
 import Theme from "./theme/Theme";
 
+import "./imports.css";
+
 ReactDOM.render(
 	<ThemeProvider theme={Theme}>
 		<Router>
