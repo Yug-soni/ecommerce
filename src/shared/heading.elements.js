@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeadingWrapper = styled.div`
 	width: 100%;
 	height: 5rem;
-	margin: 1rem 0;
+	margin-top: 1rem;
 	background-color: #fff;
 	display: flex;
 	justify-content: space-between;

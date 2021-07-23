@@ -21,7 +21,7 @@ export const SliderImage = styled.img`
 	opacity: ${({ zIndex }) => (zIndex === 1 ? 1 : 0)};
 	z-index: ${({ zIndex }) => zIndex};
 	cursor: pointer;
-	transition: all 1s ease;
+	transition: all 1s ease 0.1s;
 `;
 
 export const MoveButton = styled.button`
@@ -37,6 +37,8 @@ export const MoveButton = styled.button`
 	border: none;
 	padding: 2rem 1rem;
 	margin: 3px;
+	transition: all 0.3s ease 0.1s;
+	box-shadow: 2px 2px 5px grey;
 
 	&:hover {
 		background-color: ${({ theme }) =>
