@@ -14,6 +14,7 @@ export const CardWrapper = styled.div`
 	align-items: center;
 	background-color: ${({ theme }) =>
 		theme.color.text ? theme.color.text : " #fff"};
+	cursor: pointer;
 
 	box-shadow: 2px 2px 5px gray;
 	transition: all 500ms ease 100ms;
@@ -32,18 +33,22 @@ export const Image = styled.img`
 `;
 
 export const ImageHeading = styled.h3`
+	padding: 1px;
+	margin: 3px 0;
 	color: #3f4a3e;
 	font-size: 0.9em;
 `;
 
 export const Discount = styled.h4`
 	padding: 1px;
-	margin: 1px;
+	margin: 1px 0;
 	color: #97de90;
 	font-size: 0.7em;
 `;
 
 export const Slogan = styled.h5`
-	font-size: 0.5em;
-	color: #788078;
+	padding: 1px;
+	margin: 1px 0;
+	font-size: 0.7em;
+	color: #858585;
 `;

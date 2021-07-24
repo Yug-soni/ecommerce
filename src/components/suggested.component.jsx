@@ -48,6 +48,7 @@ class Suggested extends Component {
 
 	render() {
 		const { data, error, isLoading } = this.state;
+		const { heading } = this.props;
 		if (error) {
 			return <h1>{error}</h1>;
 		} else if (isLoading) {
@@ -55,7 +56,7 @@ class Suggested extends Component {
 		}
 		return (
 			<MainSliderWrapper>
-				<Heading heading="Deals of-the Day" />
+				<Heading heading={heading} />
 				<CardsWrapper>
 					{data.map(item => (
 						<CardWrapper key={item.id}>

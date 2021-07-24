@@ -27,11 +27,13 @@ export const ViewAllButton = styled.button`
 	padding: 0.5rem 1.5rem;
 	margin: 0 1rem;
 	border: none;
+	border-radius: 2px;
 	border: 1px solid
 		${({ theme }) => (theme.color.main ? theme.color.main : " #2874f0")};
 	font-weight: bold;
 	font-size: 12px;
 	transition: all 0.3s ease 0.1s;
+	cursor: pointer;
 
 	&:hover {
 		background-color: ${({ theme }) =>

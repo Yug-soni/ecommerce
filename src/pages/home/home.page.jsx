@@ -10,7 +10,7 @@ const HomePage = props => {
 		<>
 			<NavBar />
 			<Slider />
-			<Suggested />
+			<Suggested heading="Deals For You" />
 			<Footer />
 		</>
 	);
