@@ -33,7 +33,7 @@ class Slider extends React.Component {
 							sliderData: data,
 						},
 						() => {
-							console.log(this.state);
+							// console.log(this.state);
 						}
 					);
 				},
