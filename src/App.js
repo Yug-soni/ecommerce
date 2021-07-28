@@ -1,7 +1,5 @@
 import React from "react";
 
-import RootRouter from "./routes/root.route";
-
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -10,11 +8,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		return (
-			<>
-				<RootRouter />
-			</>
-		);
+		return <>Hello</>;
 	}
 }
 
