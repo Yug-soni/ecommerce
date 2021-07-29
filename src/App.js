@@ -1,5 +1,6 @@
 import React from "react";
 
+import Main from "./routes/main.route";
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -8,7 +9,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		return <>Hello</>;
+		return <Main />;
 	}
 }
 
