@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 import "./login.css";
@@ -33,7 +34,7 @@ class Login extends React.Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		console.log(this.state);
+		// console.log(this.state);
 		this.loginUser();
 	};
 
@@ -43,6 +44,16 @@ class Login extends React.Component {
       and redirect the user to homepage 
       and manage the session of the user
     */
+		const { username, password } = this.state.data;
+		axios
+			.post("http://localhost:8080/login", { username, password })
+			.then(response => console.log(response))
+			// .then(data => console.log(data))
+			.catch(error => console.log(error));
+		axios
+			.get("http://localhost:8080/logout")
+			.then(response => console.log(response))
+			.catch(error => console.log(error));
 	};
 
 	render() {
