@@ -39,21 +39,22 @@ class Login extends React.Component {
 	};
 
 	loginUser = () => {
-		/*
-      TODO: send a request to login the user
-      and redirect the user to homepage 
-      and manage the session of the user
-    */
 		const { username, password } = this.state.data;
 		axios
-			.post("http://localhost:8080/login", { username, password })
-			.then(response => console.log(response))
-			// .then(data => console.log(data))
-			.catch(error => console.log(error));
-		axios
-			.get("http://localhost:8080/logout")
-			.then(response => console.log(response))
-			.catch(error => console.log(error));
+			.get("http://localhost:8080/test", {
+				headers: {
+					authorization: "Basic " + window.btoa(username + ":" + password),
+				},
+			})
+			.then(data => console.log(data.data))
+			.catch(error => {
+				console.log("Fetch failed.");
+				console.log(error);
+			});
+		// axios
+		// 	.get("http://localhost:8080/logout")
+		// 	.then(response => console.log(response))
+		// 	.catch(error => console.log(error));
 	};
 
 	render() {
