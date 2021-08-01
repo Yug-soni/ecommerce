@@ -41,19 +41,33 @@ class Login extends React.Component {
 	loginUser = () => {
 		const { username, password } = this.state.data;
 		axios
-			.get("http://localhost:8080/test", {
+			.get("http://localhost:8080/login", {
+				method: "POST",
+				body: JSON.stringify({ username, password }),
+				credentials: "include",
 				headers: {
-					authorization: "Basic " + window.btoa(username + ":" + password),
+					"Content-Type": "application/json",
 				},
 			})
-			.then(data => console.log(data.data))
+			.then(response => console.log(response, "Response"))
 			.catch(error => {
-				console.log("Fetch failed.");
-				console.log(error);
+				console.log(error, "error");
 			});
-		// axios
-		// 	.get("http://localhost:8080/logout")
-		// 	.then(response => console.log(response))
+		axios
+			.get("http://localhost:8080/logout")
+			.then(response => console.log(response))
+			.catch(error => console.log(error));
+
+		// fetch("http://localhost:8080/login", {
+		// 	method: "POST",
+		// 	// body: new URLSearchParams(),
+		// 	credentials: "include",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// })
+		// 	.then(res => console.log(res.headers.get("set-cookie")))
+
 		// 	.catch(error => console.log(error));
 	};
 
