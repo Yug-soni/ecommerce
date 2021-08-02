@@ -11,7 +11,21 @@ class Homepage extends Component {
 	}
 
 	render() {
-		return <div></div>;
+		return (
+			<div
+				style={{
+					height: "100vh",
+					backgroundColor: "#000",
+					color: "#fff",
+					fontSize: "4rem",
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+				}}
+			>
+				HOMEPAGE
+			</div>
+		);
 	}
 }
 

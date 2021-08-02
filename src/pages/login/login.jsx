@@ -35,7 +35,32 @@ class Login extends React.Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		// console.log(this.state);
-		this.loginUser();
+		this.login();
+	};
+
+	login = () => {
+		const { username, password } = this.state.data;
+
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			username,
+			password,
+		});
+
+		var requestOptions = {
+			method: "POST",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow",
+			mode: "cors",
+		};
+
+		fetch("http://localhost:8080/login", requestOptions)
+			.then(response => console.log(response))
+			// .then(result => console.log(result))
+			.catch(error => console.log("error", error));
 	};
 
 	loginUser = () => {
@@ -57,18 +82,6 @@ class Login extends React.Component {
 			.get("http://localhost:8080/logout")
 			.then(response => console.log(response))
 			.catch(error => console.log(error));
-
-		// fetch("http://localhost:8080/login", {
-		// 	method: "POST",
-		// 	// body: new URLSearchParams(),
-		// 	credentials: "include",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// })
-		// 	.then(res => console.log(res.headers.get("set-cookie")))
-
-		// 	.catch(error => console.log(error));
 	};
 
 	render() {
