@@ -4,8 +4,6 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import "./main.css";
-
 ReactDOM.render(
 	<ThemeProvider theme={{}}>
 		<Router>
