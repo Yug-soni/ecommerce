@@ -79,6 +79,10 @@
   font-size: 16px !important;
 }
 
+.user-show-info-title{
+  margin-left: 10px;
+}
+
 .user-update{
   flex: 2;
   padding: 20px;
