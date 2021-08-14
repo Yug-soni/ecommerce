@@ -8,7 +8,7 @@ import {
 	PhoneAndroid,
 	Publish,
 } from "@material-ui/icons";
-
+import { Link } from "react-router-dom";
 import "./User.styles.css";
 
 export default function User() {
@@ -16,7 +16,9 @@ export default function User() {
 		<div className="user">
 			<div className="user-title-container">
 				<h1 className="user-title">Edit User</h1>
-				<button className="user-add-button">Create</button>
+				<Link to="/admin/new-user">
+					<button className="user-add-button">Create</button>
+				</Link>
 			</div>
 			<div className="user-container">
 				<div className="user-show">
@@ -120,10 +122,11 @@ export default function User() {
 									src="https://images.unsplash.com/photo-1555952517-2e8e729e0b44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
 								/>
 								<label htmlFor="file">
-									<Publish />
+									<Publish className="user-update-icon" />
 								</label>
-								<input type="file" id="file" />
+								<input type="file" id="file" style={{ display: "none" }} />
 							</div>
+							<button className="user-update-button">Update</button>
 						</div>
 					</form>
 				</div>

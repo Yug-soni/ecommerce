@@ -14,6 +14,7 @@ import {
 	AttachMoney,
 	BarChart,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 import "./SideBar.styles.css";
 
 export default function SideBar() {
@@ -23,10 +24,12 @@ export default function SideBar() {
 				<div className="side-bar-menu">
 					<h3 className="side-bar-title">Dashboard</h3>
 					<ul className="side-bar-list">
-						<li className="side-bar-list-item active ">
-							<LineStyle className="side-bar-icon" />
-							Home
-						</li>
+						<Link to="/admin/home" className="link">
+							<li className="side-bar-list-item active ">
+								<LineStyle className="side-bar-icon" />
+								Home
+							</li>
+						</Link>
 						<li className="side-bar-list-item">
 							<Timeline className="side-bar-icon" />
 							Analytics
@@ -40,14 +43,18 @@ export default function SideBar() {
 				<div className="side-bar-menu">
 					<h3 className="side-bar-title">Quick Menu</h3>
 					<ul className="side-bar-list">
-						<li className="side-bar-list-item ">
-							<PermIdentity className="side-bar-icon" />
-							Users
-						</li>
-						<li className="side-bar-list-item">
-							<Storefront className="side-bar-icon" />
-							Products
-						</li>
+						<Link to="/admin/users" className="link">
+							<li className="side-bar-list-item ">
+								<PermIdentity className="side-bar-icon" />
+								Users
+							</li>
+						</Link>
+						<Link to="/admin/products" className="link">
+							<li className="side-bar-list-item">
+								<Storefront className="side-bar-icon" />
+								Products
+							</li>
+						</Link>
 						<li className="side-bar-list-item">
 							<AttachMoney className="side-bar-icon" />
 							Transactions

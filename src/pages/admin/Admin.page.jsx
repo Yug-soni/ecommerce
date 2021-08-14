@@ -8,6 +8,10 @@ import { Switch, Route } from "react-router-dom";
 import "./Admin.styles.css";
 import UserList from "../user-list/UserList.page";
 import User from "../user/User.page";
+import NewUser from "../new-user/NewUser.page";
+import ProductList from "../product-list/ProductList.page";
+import Product from "../product/Product.page";
+import NewProduct from "../new-product/NewProduct.page";
 
 class Admin extends Component {
 	render() {
@@ -25,6 +29,18 @@ class Admin extends Component {
 						</Route>
 						<Route exact path="/admin/user/:userId">
 							<User />
+						</Route>
+						<Route exact path="/admin/new-user">
+							<NewUser />
+						</Route>
+						<Route exact path="/admin/products">
+							<ProductList />
+						</Route>
+						<Route exact path="/admin/product/:productId">
+							<Product />
+						</Route>
+						<Route exact path="/admin/new-product">
+							<NewProduct />
 						</Route>
 					</Switch>
 				</div>

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import "./UserList.styles.css";
+import "./ProductList.styles.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { Link } from "react-router-dom";
-import { userRows } from "../../DummyData";
+import { productRows } from "../../DummyData";
 import { DeleteOutline } from "@material-ui/icons";
 
-function UserList() {
-	const [data, setData] = useState(userRows);
+export default function ProductList() {
+	const [data, setData] = useState(productRows);
 
 	const handleDelete = id => {
 		setData(data.filter(item => item.id !== id));
@@ -16,27 +16,27 @@ function UserList() {
 	const columns = [
 		{ field: "id", headerName: "ID", width: 90 },
 		{
-			field: "user",
-			headerName: "User",
+			field: "product",
+			headerName: "Product",
 			width: 200,
 			renderCell: params => {
 				return (
-					<div className="user-list-user">
-						<img className="user-list-img" src={params.row.avatar} alt="" />
-						{params.row.username}
+					<div className="product-list-item">
+						<img className="product-list-img" src={params.row.img} alt="" />
+						{params.row.name}
 					</div>
 				);
 			},
 		},
-		{ field: "email", headerName: "Email", width: 200 },
+		{ field: "stock", headerName: "Stock", width: 200 },
 		{
 			field: "status",
 			headerName: "Status",
 			width: 120,
 		},
 		{
-			field: "transaction",
-			headerName: "Transaction Volume",
+			field: "price",
+			headerName: "Price",
 			width: 160,
 		},
 		{
@@ -46,11 +46,11 @@ function UserList() {
 			renderCell: params => {
 				return (
 					<>
-						<Link to={"/admin/user/" + params.row.id}>
-							<button className="user-list-edit">Edit</button>
+						<Link to={"/admin/product/" + params.row.id}>
+							<button className="product-list-edit">Edit</button>
 						</Link>
 						<DeleteOutline
-							className="user-list-delete"
+							className="product-list-delete"
 							onClick={() => handleDelete(params.row.id)}
 						/>
 					</>
@@ -60,7 +60,7 @@ function UserList() {
 	];
 
 	return (
-		<div className="user-list">
+		<div className="product-list">
 			<DataGrid
 				rows={data}
 				disableSelectionOnClick
@@ -71,5 +71,3 @@ function UserList() {
 		</div>
 	);
 }
-
-export default UserList;
